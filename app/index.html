@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Nights Cover Studio</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls">
+    <h1>Neon Nights Cover Studio</h1>
+    <p class="tagline">Your photos and a caption, made into multi-panel cover art. Nothing leaves your machine.</p>
+
+    <fieldset>
+      <legend>1 · Photos</legend>
+      <div class="slot">
+        <img id="thumb-0" alt="Photo 1">
+        <label>Photo 1 <input id="photo-0" type="file" accept="image/*"></label>
+        <button id="sample-0" type="button">Use sample</button>
+        <button id="fill-0" type="button">Fill all panels</button>
+      </div>
+      <div class="slot">
+        <img id="thumb-1" alt="Photo 2">
+        <label>Photo 2 <input id="photo-1" type="file" accept="image/*"></label>
+        <button id="sample-1" type="button">Use sample</button>
+        <button id="fill-1" type="button">Fill all panels</button>
+      </div>
+      <div class="slot">
+        <img id="thumb-2" alt="Photo 3">
+        <label>Photo 3 <input id="photo-2" type="file" accept="image/*"></label>
+        <button id="sample-2" type="button">Use sample</button>
+        <button id="fill-2" type="button">Fill all panels</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>2 · Layout</legend>
+      <div class="buttons" id="layout-group">
+        <button type="button" data-value="poster" class="on">Poster</button>
+        <button type="button" data-value="grid">Grid</button>
+        <button type="button" data-value="wide">Wide</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>3 · Size</legend>
+      <div class="buttons" id="size-group">
+        <button type="button" data-value="1080x1080" class="on">1080 × 1080</button>
+        <button type="button" data-value="1080x1350">1080 × 1350</button>
+        <button type="button" data-value="1920x1080">1920 × 1080</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4 · Caption</legend>
+      <label>Caption <input id="caption" type="text" maxlength="30" value="NEON NIGHTS"></label>
+      <label>Lettering size <input id="caption-size" type="range" min="0.6" max="1.5" step="0.05" value="1"></label>
+      <label>Caption spot
+        <select id="caption-band">
+          <option value="top">Top</option>
+          <option value="middle" selected>Middle</option>
+          <option value="bottom">Bottom</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>5 · Colour grade</legend>
+      <div class="buttons" id="grade-group">
+        <button type="button" data-value="sunset" class="on">Sunset</button>
+        <button type="button" data-value="neon">Neon</button>
+        <button type="button" data-value="noir">Noir</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>6 · Selected panel</legend>
+      <p id="panel-label">Panel 1 of 3</p>
+      <label>Photo in this panel
+        <select id="panel-photo">
+          <option value="0">Photo 1</option>
+          <option value="1">Photo 2</option>
+          <option value="2">Photo 3</option>
+        </select>
+      </label>
+      <label>Zoom <input id="zoom" type="range" min="1" max="3" step="0.05" value="1"></label>
+      <p class="hint">Click a panel on the cover to select it, then drag it to move its photo.</p>
+    </fieldset>
+
+    <button id="export" type="button" class="export">Export PNG</button>
+    <p id="status" role="status"></p>
+  </section>
+  <section class="stage">
+    <canvas id="cover" width="560" height="560" aria-label="The cover"></canvas>
+    <p class="hint">Live preview — what you see is what the PNG holds.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
